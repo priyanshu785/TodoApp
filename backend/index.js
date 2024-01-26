@@ -1,10 +1,11 @@
  const express= require("express");
  const  {createTodo, updateTodo}= require("./type");
+ const cors= require('cors');
 const db = require("./db");
  const app=express();
-
+ const port= 3000;
  app.use(express.json());
-
+app.use(cors);
 //a db connection is necessary to fetch all the data of exisiting todos.
  app.get("/todos",async (req,res)=>{
     const todos= await db.todo.find({})
@@ -53,4 +54,8 @@ const db = require("./db");
         msg:"todo marked as completed"
     })
     //update in the db
+ })
+
+ app.listen(port, ()=>{
+    console.log("yes the server is running fine")
  })
