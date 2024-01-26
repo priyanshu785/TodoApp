@@ -3,6 +3,9 @@ import { useState } from 'react'
 import './App.css'
 import { Todos } from './components/Todos';
 
+
+//vercel for frontend
+//render network for backend
 async function App() {
   //to stop this rerendering everytime we use useEffect
   const [todos,setTodos]= useState([]);
